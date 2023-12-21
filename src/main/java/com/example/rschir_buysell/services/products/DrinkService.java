@@ -10,6 +10,8 @@ import com.example.rschir_buysell.repositories.ImageRepository;
 import com.example.rschir_buysell.repositories.products.DrinkRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -117,11 +119,11 @@ public class DrinkService {
         return drinkRepository.findAll();
     }
 
-    public List<Drink> getDrinksByName(String name) {
+    public Page<Drink> getDrinksByName(String name, Pageable pageable) {
         if (name != null && !name.isEmpty()) {
-            return drinkRepository.findByNameLike("%" + name + "%");
+            return drinkRepository.findByNameLike("%" + name + "%", pageable);
         } else {
-            return drinkRepository.findAll();
+            return drinkRepository.findAll(pageable);
         }
     }
 }

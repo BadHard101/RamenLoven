@@ -6,7 +6,7 @@
 <form action="/drink/panel" method="get">
     <div class="mb-3">
         <label class="form-label">Поиск напитка по названию:</label>
-        <input class="form-control" type="text" name="name">
+        <input class="form-control" type="text" name="name" <#if name??>value="${name}"</#if>>
     </div>
     <input type="submit" value="Поиск" class="btn btn-primary">
 </form>
@@ -40,5 +40,27 @@
         </tr>
     </#list>
 </table>
+
+<#if totalPages gt 0>
+    <div class="d-flex justify-content-center">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <#if currentPage gt 0>
+                    <li class="page-item"><a class="page-link" href="?page=${currentPage - 1}<#if name??>&name=${name}</#if>">Предыдущая</a></li>
+                </#if>
+                <#list 0..(totalPages - 1) as page>
+                    <#if page == currentPage>
+                        <li class="page-item active"><span class="page-link">${page + 1}</span></li>
+                    <#else>
+                        <li class="page-item"><a class="page-link" href="?page=${page}<#if name??>&name=${name}</#if>">${page + 1}</a></li>
+                    </#if>
+                </#list>
+                <#if currentPage lt totalPages - 1>
+                    <li class="page-item"><a class="page-link" href="?page=${currentPage + 1}<#if name??>&name=${name}</#if>">Следующая</a></li>
+                </#if>
+            </ul>
+        </nav>
+    </div>
+</#if>
 
 <#include "../footer.ftlh">

@@ -10,6 +10,7 @@ import com.example.rschir_buysell.repositories.ImageRepository;
 import com.example.rschir_buysell.repositories.products.DishRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -119,11 +120,11 @@ public class DishService {
         return dishRepository.findAll();
     }
 
-    public List<Dish> getDishesByName(String name) {
+    public Page<Dish> getDishesByName(String name, Pageable pageable) {
         if (name != null && !name.isEmpty()) {
-            return dishRepository.findByNameLike("%" + name + "%");
+            return dishRepository.findByNameLike("%" + name + "%", pageable);
         } else {
-            return dishRepository.findAll();
+            return dishRepository.findAll(pageable);
         }
     }
 }

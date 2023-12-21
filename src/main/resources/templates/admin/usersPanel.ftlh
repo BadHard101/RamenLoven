@@ -5,7 +5,7 @@
 <form action="/admin/users" method="get">
     <div class="mb-3">
         <label class="form-label">Поиск пользователя по почте:</label>
-        <input class="form-control" type="text" name="email" <#if email??>value="${email}"</#if> >
+        <input class="form-control" type="text" name="email" <#if email??>value="${email}"</#if>>
     </div>
     <input type="submit" value="Поиск" class="btn btn-primary">
 </form>

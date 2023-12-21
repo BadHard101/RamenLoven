@@ -1,8 +1,13 @@
 package com.example.rschir_buysell.controllers.products.seller;
 
+import com.example.rschir_buysell.models.Client;
 import com.example.rschir_buysell.models.products.Dish;
 import com.example.rschir_buysell.services.products.DishService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -81,9 +86,17 @@ public class DishAdminController {
 
     @GetMapping("/panel")
     public String getDishPanel(@RequestParam(name = "name", required = false) String name,
+                               @PageableDefault(size = 10, sort = {"id"}, direction = Sort.Direction.ASC) Pageable pageable,
                                Model model, Principal principal) {
         model.addAttribute("user", dishService.getClientByPrincipal(principal));
-        model.addAttribute("dishes", dishService.getDishesByName(name));
+        model.addAttribute("name", name);
+
+        Page<Dish> usersPage = dishService.getDishesByName(name, pageable);
+        model.addAttribute("dishes", usersPage.getContent());
+        model.addAttribute("currentPage", usersPage.getNumber());
+        model.addAttribute("totalPages", usersPage.getTotalPages());
+        model.addAttribute("totalItems", usersPage.getTotalElements());
+
         return "admin/dishPanel";
     }
 }

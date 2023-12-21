@@ -50,18 +50,20 @@ public class AdminController {
         model.addAttribute("user", adminService.getClientByPrincipal(principal));
         return "admin/usersPanel";
     }*/
-    // Ваш контроллер
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
+
+    @GetMapping("/users")
     public String getUsers(@RequestParam(name = "email", required = false) String email,
                            @PageableDefault(size = 10, sort = {"id"}, direction = Sort.Direction.ASC) Pageable pageable,
                            Model model, Principal principal) {
-        Page<Client> usersPage = adminService.getUsersByEmail(email, pageable);
         model.addAttribute("user", adminService.getClientByPrincipal(principal));
+        model.addAttribute("email", email);
+
+        Page<Client> usersPage = adminService.getUsersByEmail(email, pageable);
         model.addAttribute("users", usersPage.getContent());
         model.addAttribute("currentPage", usersPage.getNumber());
         model.addAttribute("totalPages", usersPage.getTotalPages());
         model.addAttribute("totalItems", usersPage.getTotalElements());
-        model.addAttribute("email", email);
+
         return "admin/usersPanel";
     }
 
