@@ -11,5 +11,8 @@
     <div class="col-md-4">
         <a href="/drink/panel" class="btn btn-info btn-block">Меню напитков</a>
     </div>
+    <div class="col-md-4">
+        <a href="/admin/orders" class="btn btn-success btn-block">Список заказов</a>
+    </div>
 </div>
 <#include "../footer.ftlh">

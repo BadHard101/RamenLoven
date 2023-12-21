@@ -1,9 +1,12 @@
 package com.example.rschir_buysell.services;
 
 import com.example.rschir_buysell.models.Client;
+import com.example.rschir_buysell.models.ShoppingCart;
 import com.example.rschir_buysell.models.enums.Role;
+import com.example.rschir_buysell.models.enums.Status;
 import com.example.rschir_buysell.models.products.Product;
 import com.example.rschir_buysell.repositories.ClientRepository;
+import com.example.rschir_buysell.repositories.ShoppingCartRepository;
 import com.example.rschir_buysell.repositories.products.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +28,7 @@ import java.util.stream.Collectors;
 public class AdminService {
     private final ClientRepository clientRepository;
     private final ProductRepository productRepository;
+    private final ShoppingCartRepository shoppingCartRepository;
 
     public Client getClientByPrincipal(Principal principal) {
         if (principal == null) return new Client();
@@ -78,10 +82,29 @@ public class AdminService {
 
     public Page<Client> getUsersByEmail(String email, Pageable pageable) {
         if (email != null && !email.isEmpty()) {
-            // Используйте новый метод findByEmailLike
             return clientRepository.findByEmailLike("%" + email + "%", pageable);
         } else {
             return clientRepository.findAll(pageable);
+        }
+    }
+
+    public Page<ShoppingCart> getOrdersByAddress(String address, Pageable pageable) {
+        if (address != null && !address.isEmpty()) {
+            return shoppingCartRepository.findAllByAddressLikeAndActive("%" + address + "%",false,  pageable);
+        } else {
+            return shoppingCartRepository.findAllByActive(false, pageable);
+        }
+    }
+
+    public ShoppingCart getOrderById(Long id) {
+        return shoppingCartRepository.getById(id);
+    }
+
+    public void changeOrderStatus(Long id, String status) {
+        if (status != null && !status.isEmpty()) {
+            ShoppingCart order = shoppingCartRepository.getById(id);
+            order.setStatus(Status.valueOf(status));
+            shoppingCartRepository.save(order);
         }
     }
 }

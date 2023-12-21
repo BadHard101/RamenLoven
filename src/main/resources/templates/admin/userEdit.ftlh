@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Buysell</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-        body {
-            padding: 1% 5% 2% 5%;
-        }
-    </style>
-</head>
-<body>
-<h1 class="mt-3">Buysell</h1>
+<#include "../header.ftlh">
 <hr>
 <h3>Редактирование пользователя ${user.name}</h3>
 <form action="/admin/user/edit" method="post">
@@ -39,5 +27,5 @@
     <input type="hidden" value="${_csrf.token}" name="_csrf">
     <button type="submit" class="btn btn-primary">Сохранить</button>
 </form>
-</body>
-</html>
+
+<#include "../footer.ftlh">
