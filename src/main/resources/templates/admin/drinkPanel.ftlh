@@ -3,7 +3,7 @@
 <h2>Панель администратора / Меню напитков</h2>
 
 
-<form action="/drink/" method="get">
+<form action="/drink/panel" method="get">
     <div class="mb-3">
         <label class="form-label">Поиск напитка по названию:</label>
         <input class="form-control" type="text" name="name">

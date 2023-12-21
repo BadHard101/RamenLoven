@@ -3,6 +3,7 @@ package com.example.rschir_buysell.services.products;
 import com.example.rschir_buysell.models.Client;
 import com.example.rschir_buysell.models.Image;
 import com.example.rschir_buysell.models.enums.ProductType;
+import com.example.rschir_buysell.models.products.Dish;
 import com.example.rschir_buysell.models.products.Drink;
 import com.example.rschir_buysell.repositories.ClientRepository;
 import com.example.rschir_buysell.repositories.ImageRepository;
@@ -114,5 +115,13 @@ public class DrinkService {
 
     public List<Drink> getAllDrinks() {
         return drinkRepository.findAll();
+    }
+
+    public List<Drink> getDrinksByName(String name) {
+        if (name != null && !name.isEmpty()) {
+            return drinkRepository.findByNameLike("%" + name + "%");
+        } else {
+            return drinkRepository.findAll();
+        }
     }
 }

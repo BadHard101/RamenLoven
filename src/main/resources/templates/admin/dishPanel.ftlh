@@ -3,7 +3,7 @@
 <h2>Панель администратора / Меню блюд</h2>
 
 
-<form action="/dish/" method="get">
+<form action="/dish/panel" method="get">
     <div class="mb-3">
         <label class="form-label">Поиск блюда по названию:</label>
         <input class="form-control" type="text" name="name">

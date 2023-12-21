@@ -81,9 +81,10 @@ public class DrinkAdminController {
     }
 
     @GetMapping("/panel")
-    public String getDrinkPanel(Model model, Principal principal) {
+    public String getDrinkPanel(@RequestParam(name = "name", required = false) String name,
+                               Model model, Principal principal) {
         model.addAttribute("user", drinkService.getClientByPrincipal(principal));
-        model.addAttribute("drinks", drinkService.getAllDrinks());
+        model.addAttribute("drinks", drinkService.getDrinksByName(name));
         return "admin/drinkPanel";
     }
 }

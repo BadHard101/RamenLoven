@@ -80,9 +80,10 @@ public class DishAdminController {
     }
 
     @GetMapping("/panel")
-    public String getDishPanel(Model model, Principal principal) {
+    public String getDishPanel(@RequestParam(name = "name", required = false) String name,
+                               Model model, Principal principal) {
         model.addAttribute("user", dishService.getClientByPrincipal(principal));
-        model.addAttribute("dishes", dishService.getAllDishes());
+        model.addAttribute("dishes", dishService.getDishesByName(name));
         return "admin/dishPanel";
     }
 }

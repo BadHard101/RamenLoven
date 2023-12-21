@@ -4,17 +4,18 @@ import com.example.rschir_buysell.models.Client;
 import com.example.rschir_buysell.models.Image;
 import com.example.rschir_buysell.models.enums.ProductType;
 import com.example.rschir_buysell.models.products.Dish;
+import com.example.rschir_buysell.models.products.Drink;
 import com.example.rschir_buysell.repositories.ClientRepository;
 import com.example.rschir_buysell.repositories.ImageRepository;
 import com.example.rschir_buysell.repositories.products.DishRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -113,7 +114,16 @@ public class DishService {
         dishRepository.delete(dishRepository.getById(id));
     }
 
+
     public List<Dish> getAllDishes() {
         return dishRepository.findAll();
+    }
+
+    public List<Dish> getDishesByName(String name) {
+        if (name != null && !name.isEmpty()) {
+            return dishRepository.findByNameLike("%" + name + "%");
+        } else {
+            return dishRepository.findAll();
+        }
     }
 }
