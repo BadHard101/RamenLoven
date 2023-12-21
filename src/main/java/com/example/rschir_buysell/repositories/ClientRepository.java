@@ -10,4 +10,5 @@ import java.util.List;
 public interface ClientRepository extends JpaRepository<Client, Long> {
     Client findByEmail(String email);
     Page<Client> findByEmail(String email, Pageable pageable);
+    Page<Client> findByEmailLike(String partialEmail, Pageable pageable);
 }

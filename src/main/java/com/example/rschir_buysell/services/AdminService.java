@@ -78,7 +78,8 @@ public class AdminService {
 
     public Page<Client> getUsersByEmail(String email, Pageable pageable) {
         if (email != null && !email.isEmpty()) {
-            return clientRepository.findByEmail(email, pageable);
+            // Используйте новый метод findByEmailLike
+            return clientRepository.findByEmailLike("%" + email + "%", pageable);
         } else {
             return clientRepository.findAll(pageable);
         }
