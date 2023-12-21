@@ -31,6 +31,9 @@ public class ShoppingCart {
     @Column(name = "address")
     private String address;
 
+    @Column(name = "employee_id")
+    private Long employeeId = (long) 0;
+
     @Column(name = "carrier_id")
     private Long carrierId = (long) 0;
 
@@ -53,8 +56,8 @@ public class ShoppingCart {
         return false;
     }
 
-    public boolean isCooking() {
-        if (status.contains(Status.COOKING)) return true;
+    public boolean isCooked() {
+        if (status.contains(Status.COOKED)) return true;
         return false;
     }
 

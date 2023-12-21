@@ -27,6 +27,11 @@
                 <div class="col-md-4">
                     <a href="/account" class="btn btn-primary btn-block"> Аккаунт</a>
                 </div>
+                <#if user.isEmployee() == true>
+                    <div class="col-md-4">
+                        <a href="/employee/panel" class="btn btn-primary btn-block"> Панель работника</a>
+                    </div>
+                </#if>
                 <#if user.isAdmin() == true>
                     <div class="col-md-4">
                         <a href="/admin/panel" class="btn btn-primary btn-block"> Панель администратора</a>
