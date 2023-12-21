@@ -7,6 +7,10 @@ import com.example.rschir_buysell.repositories.ClientRepository;
 import com.example.rschir_buysell.repositories.products.ProductRepository;
 import com.example.rschir_buysell.services.AdminService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -38,12 +42,26 @@ public class AdminController {
         return "user/userPage";
     }
 
-    @GetMapping("/users")
+    /*@GetMapping("/users")
     public String showUsers(@RequestParam(name = "email", required = false) String email,
                             Model model,
                             Principal principal) {
         model.addAttribute("users", adminService.findAllClients(email));
         model.addAttribute("user", adminService.getClientByPrincipal(principal));
+        return "admin/usersPanel";
+    }*/
+    // Ваш контроллер
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    public String getUsers(@RequestParam(name = "email", required = false) String email,
+                           @PageableDefault(size = 10, sort = {"id"}, direction = Sort.Direction.ASC) Pageable pageable,
+                           Model model, Principal principal) {
+        Page<Client> usersPage = adminService.getUsersByEmail(email, pageable);
+        model.addAttribute("user", adminService.getClientByPrincipal(principal));
+        model.addAttribute("users", usersPage.getContent());
+        model.addAttribute("currentPage", usersPage.getNumber());
+        model.addAttribute("totalPages", usersPage.getTotalPages());
+        model.addAttribute("totalItems", usersPage.getTotalElements());
+        model.addAttribute("email", email);
         return "admin/usersPanel";
     }
 

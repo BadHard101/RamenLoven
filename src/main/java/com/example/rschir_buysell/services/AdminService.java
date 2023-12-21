@@ -7,6 +7,8 @@ import com.example.rschir_buysell.repositories.ClientRepository;
 import com.example.rschir_buysell.repositories.products.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -72,5 +74,13 @@ public class AdminService {
 
     public List<Product> getAllProducts() {
         return productRepository.findAll();
+    }
+
+    public Page<Client> getUsersByEmail(String email, Pageable pageable) {
+        if (email != null && !email.isEmpty()) {
+            return clientRepository.findByEmail(email, pageable);
+        } else {
+            return clientRepository.findAll(pageable);
+        }
     }
 }

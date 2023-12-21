@@ -1,5 +1,6 @@
 package com.example.rschir_buysell.models;
 
+import com.example.rschir_buysell.models.enums.Status;
 import com.example.rschir_buysell.models.products.Product;
 import lombok.Data;
 
@@ -22,13 +23,45 @@ public class ShoppingCart {
     @Column(name = "is_active")
     private boolean active;
 
-
-    private LocalDateTime creationDate;
-
-
     @ElementCollection
     @CollectionTable(name = "cart_items", joinColumns = @JoinColumn(name = "cart_id"))
     private Map<Product, Integer> items = new HashMap<>();
+
+
+    /*@Column(name = "address")
+    private String address;
+
+    @Column(name = "carrier_id")
+    private Long carrierId = (long) 0;
+
+    @ElementCollection(targetClass = Status.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "order_status",
+            joinColumns = @JoinColumn(name = "order_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<Status> status = new HashSet<>();
+
+    @Column
+    private LocalDateTime creationDate;
+
+    public void setStatus(Status status) {
+        this.status.clear();
+        this.status.add(status);
+    }
+
+    public boolean isCreated() {
+        if (status.contains(Status.CREATED)) return true;
+        return false;
+    }
+
+    public boolean isProcess() {
+        if (status.contains(Status.IN_PROCESS)) return true;
+        return false;
+    }
+
+    public boolean isCompleted() {
+        if (status.contains(Status.COMPLETED)) return true;
+        return false;
+    }*/
 
     public void addItem(Product product) {
         items.put(product, items.getOrDefault(product, 0) + 1);
