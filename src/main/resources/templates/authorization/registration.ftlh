@@ -23,6 +23,10 @@
         <input type="email" id="email" name="email" class="form-control">
     </div>
     <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Номер телефона:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control">
+    </div>
+    <div class="mb-3">
         <label for="password" class="form-label">Пароль:</label>
         <input type="password" id="password" name="password" class="form-control">
     </div>

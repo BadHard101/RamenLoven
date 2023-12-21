@@ -66,11 +66,23 @@
     </#if>
     <#if cart.calculateTotal() gt 0>
         <br>
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+        <#--<div style="display: flex; justify-content: space-between; align-items: center;">
             <h2>Общая сумма заказа: ${cart.calculateTotal()}₽</h2>
-            <!-- Добавьте кнопку "Оформить заказ" здесь -->
             <button class="checkout-button" type="button" onclick="location.href='/product/shoppingCart/checkout'">Оформить заказ</button>
-        </div>
+        </div>-->
+        <form method="get" action="/product/shoppingCart/checkout">
+            <!-- Добавьте поле для ввода адреса -->
+            <label for="address">Введите адрес:</label>
+            <input type="text" id="address" name="address" required>
+
+            <!-- ... ваш текущий код ... -->
+
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>Общая сумма заказа: ${cart.calculateTotal()}₽</h2>
+                <!-- Изменил onclick, чтобы отправлять форму с введенным адресом -->
+                <button class="checkout-button" type="submit">Оформить заказ</button>
+            </div>
+        </form>
         <hr>
         <#if successLabel??>
             <h2 style="color: green">${successLabel}</h2>

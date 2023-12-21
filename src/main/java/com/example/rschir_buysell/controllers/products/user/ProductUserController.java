@@ -8,9 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -78,8 +76,9 @@ public class ProductUserController {
     }
 
     @GetMapping("/shoppingCart/checkout")
-    public String checkoutShoppingCart(@AuthenticationPrincipal Client client, Model model) {
-        String st = shoppingCartService.checkoutShoppingCart(client);
+    public String checkoutShoppingCart(@RequestParam(name = "address", required = true) String address,
+                                       @AuthenticationPrincipal Client client, Model model) {
+        String st = shoppingCartService.checkoutShoppingCart(client, address);
         if (!st.equals("Success")) model.addAttribute("errorMessage", st);
         else {
             model.addAttribute("successLabel", "Вы успешно оформили заказ!");

@@ -1,24 +1,25 @@
 <#include "../header.ftlh">
 <hr>
-    <h3>Пользователь ${client.login}</h3>
+    <h3>Пользователь ${client.name}</h3>
     <p>ID: ${client.id}</p>
-    <p>Имя: ${client.name}</p>
+    <#--<p>Номер телефона: ${client.phoneNumber}</p>-->
+    <p>Роль: <#list user.roles as role>
+        <#if role=="ROLE_ADMIN">
+            Администратор
+        <#elseif role=="ROLE_EMPLOYEE">
+            Работник
+        <#elseif role=="ROLE_USER">
+            Пользователь
+        <#elseif role=="ROLE_DELIVERYMAN">
+            Доставщик
+        <#else>
+            ${role}<br>
+        </#if>
+        </#list>
+    </p>
     <p>Почта: ${client.email}</p>
+    <p>Дата создания: ${client.dateOfCreated.toLocalDate()} /
+        ${client.dateOfCreated.getHour()}:${client.dateOfCreated.getMinute()}:${client.dateOfCreated.getSecond()}</p>
 
 <hr>
-    <h3>Продукты пользователя на продажу</h3>
-<#assign productsFound = false>
-<#list products as product>
-    <#if product.seller.id == client.id>
-        <h4>Тип: ${product.productType}</h4>
-        <p>Название: ${product.name}</p>
-        <p>Цена: ${product.price}₽</p>
-        <p>Количество: ${product.quantity} шт.</p>
-        <#assign productsFound = true>
-        <hr>
-    </#if>
-</#list>
-<#if productsFound == false>
-    <h4><i>Продуктов на продажу нет</i></h4>
-</#if>
 <#include "../footer.ftlh">

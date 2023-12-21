@@ -28,7 +28,7 @@ public class ShoppingCart {
     private Map<Product, Integer> items = new HashMap<>();
 
 
-    /*@Column(name = "address")
+    @Column(name = "address")
     private String address;
 
     @Column(name = "carrier_id")
@@ -53,15 +53,30 @@ public class ShoppingCart {
         return false;
     }
 
-    public boolean isProcess() {
-        if (status.contains(Status.IN_PROCESS)) return true;
+    public boolean isCooking() {
+        if (status.contains(Status.COOKING)) return true;
+        return false;
+    }
+
+    public boolean isAccepted() {
+        if (status.contains(Status.ACCEPTED)) return true;
+        return false;
+    }
+
+    public boolean isDelivering() {
+        if (status.contains(Status.DELIVERING)) return true;
         return false;
     }
 
     public boolean isCompleted() {
         if (status.contains(Status.COMPLETED)) return true;
         return false;
-    }*/
+    }
+
+    public boolean isCanceled() {
+        if (status.contains(Status.CANCELED)) return true;
+        return false;
+    }
 
     public void addItem(Product product) {
         items.put(product, items.getOrDefault(product, 0) + 1);

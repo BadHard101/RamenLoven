@@ -2,6 +2,7 @@ package com.example.rschir_buysell.services.products;
 
 import com.example.rschir_buysell.models.Client;
 import com.example.rschir_buysell.models.ShoppingCart;
+import com.example.rschir_buysell.models.enums.Status;
 import com.example.rschir_buysell.models.products.Product;
 import com.example.rschir_buysell.repositories.ClientRepository;
 import com.example.rschir_buysell.repositories.ShoppingCartRepository;
@@ -11,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -149,7 +151,7 @@ public class ShoppingCartService {
         shoppingCartRepository.save(cart);
     }
 
-    public String checkoutShoppingCart(Client client) {
+    public String checkoutShoppingCart(Client client, String address) {
         ShoppingCart cart = getOrCreateShoppingCartByClient(client);
         for (Map.Entry<Product, Integer> entry : cart.getItems().entrySet()) {
             Product product = entry.getKey();
@@ -174,6 +176,10 @@ public class ShoppingCartService {
         // Сохранить прошлую корзину как совершенный заказ
 
         cart.setActive(false);
+        cart.setAddress(address);
+        cart.setCreationDate(LocalDateTime.now());
+        cart.setStatus(Status.CREATED);
+
         cart = new ShoppingCart();
         cart.setClient(client);
         cart.setActive(true);
