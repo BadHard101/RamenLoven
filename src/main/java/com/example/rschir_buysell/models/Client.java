@@ -65,6 +65,10 @@ public class Client implements UserDetails {
         return roles.contains(Role.ROLE_EMPLOYEE);
     }
 
+    public boolean isDeliveryman() {
+        return roles.contains(Role.ROLE_DELIVERYMAN);
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;

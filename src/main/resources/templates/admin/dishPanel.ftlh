@@ -41,4 +41,26 @@
     </#list>
 </table>
 
+<#if totalPages gt 0>
+    <div class="d-flex justify-content-center">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <#if currentPage gt 0>
+                    <li class="page-item"><a class="page-link" href="?page=${currentPage - 1}<#if email??>&email=${email}</#if>">Предыдущая</a></li>
+                </#if>
+                <#list 0..(totalPages - 1) as page>
+                    <#if page == currentPage>
+                        <li class="page-item active"><span class="page-link">${page + 1}</span></li>
+                    <#else>
+                        <li class="page-item"><a class="page-link" href="?page=${page}<#if email??>&email=${email}</#if>">${page + 1}</a></li>
+                    </#if>
+                </#list>
+                <#if currentPage lt totalPages - 1>
+                    <li class="page-item"><a class="page-link" href="?page=${currentPage + 1}<#if email??>&email=${email}</#if>">Следующая</a></li>
+                </#if>
+            </ul>
+        </nav>
+    </div>
+</#if>
+
 <#include "../footer.ftlh">

@@ -25,25 +25,25 @@ public class EmployeeController {
         model.addAttribute("user", client);
         model.addAttribute("orders", employeeService.findAllCreatedOrders());
 
-        return "employee/panel";
+        return "employee/employeePanel";
     }
 
     @GetMapping ("/order/accept/{id}")
     public String acceptOrder(@PathVariable("id") Long id, @AuthenticationPrincipal Client client) {
         employeeService.acceptOrder(id, client);
-        return "redirect:/employee/panel";
+        return "redirect:/employee/employeePanel";
     }
 
     @GetMapping("/order/cooked/{id}")
-    public String cookedOrder(@PathVariable("id") Long id, @AuthenticationPrincipal Client client) {
-        employeeService.cookedOrder(id, client);
-        return "redirect:/employee/panel";
+    public String cookedOrder(@PathVariable("id") Long id) {
+        employeeService.cookedOrder(id);
+        return "redirect:/employee/employeePanel";
     }
 
     @GetMapping("/order/cancel/{id}")
-    public String cancelOrder(@PathVariable("id") Long id, @AuthenticationPrincipal Client client) {
-        employeeService.cancelOrder(id, client);
-        return "redirect:/employee/panel";
+    public String cancelOrder(@PathVariable("id") Long id) {
+        employeeService.cancelOrder(id);
+        return "redirect:/employee/employeePanel";
     }
 
 }

@@ -15,36 +15,34 @@ import java.util.List;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class EmployeeService {
-    private final ClientRepository clientRepository;
+public class DeliveryService {
     private final ShoppingCartRepository shoppingCartRepository;
 
-    public List<ShoppingCart> findAllCreatedOrders() {
-         List<ShoppingCart> orders = new ArrayList<>();
-        orders.addAll(shoppingCartRepository.findAllByStatus(Status.ACCEPTED));
-         orders.addAll(shoppingCartRepository.findAllByStatus(Status.CREATED));
-         return orders;
+    public List<ShoppingCart> findAllCookedOrders() {
+        List<ShoppingCart> orders = new ArrayList<>();
+        orders.addAll(shoppingCartRepository.findAllByStatus(Status.DELIVERING));
+        orders.addAll(shoppingCartRepository.findAllByStatus(Status.COOKED));
+        return orders;
     }
 
-
-    public void acceptOrder(Long id, Client employee) {
+    public void deliveringOrder(Long id, Client carrier) {
         ShoppingCart order = shoppingCartRepository.getById(id);
-        if (order.getEmployeeId() == null || order.getEmployeeId() == 0) {
-            order.setEmployeeId(employee.getId());
-            order.setStatus(Status.ACCEPTED);
+        if (order.getCarrierId() == null || order.getCarrierId() == 0) {
+            order.setCarrierId(carrier.getId());
+            order.setStatus(Status.DELIVERING);
             shoppingCartRepository.save(order);
         }
     }
 
-    public void cancelOrder(Long id) {
+    public void completeOrder(Long id) {
         ShoppingCart order = shoppingCartRepository.getById(id);
-        order.setEmployeeId(null);
-        order.setStatus(Status.CREATED);
+        order.setStatus(Status.COMPLETED);
         shoppingCartRepository.save(order);
     }
 
-    public void cookedOrder(Long id) {
+    public void cancelOrder(Long id) {
         ShoppingCart order = shoppingCartRepository.getById(id);
+        order.setCarrierId(null);
         order.setStatus(Status.COOKED);
         shoppingCartRepository.save(order);
     }

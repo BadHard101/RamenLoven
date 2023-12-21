@@ -1,13 +1,10 @@
 package com.example.rschir_buysell.controllers.products.seller;
 
-import com.example.rschir_buysell.models.Client;
 import com.example.rschir_buysell.models.products.Product;
 import com.example.rschir_buysell.models.enums.ProductType;
 import com.example.rschir_buysell.services.AdminService;
-import com.example.rschir_buysell.services.products.ShoppingCartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +16,7 @@ import java.util.*;
 @RequiredArgsConstructor
 @RequestMapping("/product")
 @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-public class ProductSellerController {
+public class ProductAdminController {
     private final AdminService adminService;
 
     @GetMapping("/typeSelect")

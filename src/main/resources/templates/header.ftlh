@@ -32,6 +32,11 @@
                         <a href="/employee/panel" class="btn btn-primary btn-block"> Панель работника</a>
                     </div>
                 </#if>
+                <#if user.isDeliveryman() == true>
+                    <div class="col-md-4">
+                        <a href="/delivery/panel" class="btn btn-primary btn-block"> Панель доставщика</a>
+                    </div>
+                </#if>
                 <#if user.isAdmin() == true>
                     <div class="col-md-4">
                         <a href="/admin/panel" class="btn btn-primary btn-block"> Панель администратора</a>

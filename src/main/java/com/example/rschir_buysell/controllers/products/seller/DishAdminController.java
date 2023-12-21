@@ -14,8 +14,8 @@ import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/dish")
 @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+@RequestMapping("/dish")
 public class DishAdminController {
     private final DishService dishService;
 
