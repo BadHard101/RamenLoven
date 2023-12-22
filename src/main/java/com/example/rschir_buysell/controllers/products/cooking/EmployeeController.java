@@ -31,19 +31,19 @@ public class EmployeeController {
     @GetMapping ("/order/accept/{id}")
     public String acceptOrder(@PathVariable("id") Long id, @AuthenticationPrincipal Client client) {
         employeeService.acceptOrder(id, client);
-        return "redirect:/employee/employeePanel";
+        return "redirect:/employee/panel";
     }
 
     @GetMapping("/order/cooked/{id}")
     public String cookedOrder(@PathVariable("id") Long id) {
         employeeService.cookedOrder(id);
-        return "redirect:/employee/employeePanel";
+        return "redirect:/employee/panel";
     }
 
     @GetMapping("/order/cancel/{id}")
     public String cancelOrder(@PathVariable("id") Long id) {
         employeeService.cancelOrder(id);
-        return "redirect:/employee/employeePanel";
+        return "redirect:/employee/panel";
     }
 
 }

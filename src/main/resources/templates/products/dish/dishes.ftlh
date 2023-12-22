@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <h5 class="card-title">${dish.name}</h5>
                             <p class="card-text">
-                                Блюдо ${dish.price}$ | Количество: ${dish.quantity}
+                                Блюдо ${dish.price}₽ | Количество: ${dish.quantity}
                             </p>
                             <#if user.isAdmin()>
                                 <a href="/dish/edit/${dish.id}" class="btn btn-primary btn-sm">Редактировать</a>

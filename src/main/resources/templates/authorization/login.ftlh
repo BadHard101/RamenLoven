@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Buysell</title>
+    <title>Ресторан</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-    <h1 class="mt-4">Buysell</h1>
+    <h1 class="mt-4">Ресторан</h1>
     <hr>
     <h4 class="mt-4">Авторизация</h4> <br>
     <form action="/login" method="post">

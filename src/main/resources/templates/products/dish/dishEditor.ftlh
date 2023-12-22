@@ -8,7 +8,7 @@
         </div>
         Название блюда: <input type="text" name="name" value="${dish.name}"/><br><br>
         Количество: <input type="number" name="quantity" value="${dish.quantity}"/><br><br>
-        Цена: <input type="number" step="0.01" name="price" value="${formattedPrice}"/><br><br>
+        Цена: <input type="number" step="0.01" name="price" value="${formattedPrice}₽"/><br><br>
 
         <input type="hidden" name="_csrf" value="${_csrf.token}">
         <input type="submit" value="Сохранить" class="btn btn-primary"/>
