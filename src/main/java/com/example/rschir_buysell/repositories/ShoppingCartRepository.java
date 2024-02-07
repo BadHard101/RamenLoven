@@ -16,5 +16,4 @@ public interface ShoppingCartRepository extends JpaRepository<ShoppingCart, Long
 
     Page<ShoppingCart> findAllByAddressLikeAndActive(String address, boolean active, Pageable pageable);
     Page<ShoppingCart> findAllByActive(boolean active, Pageable pageable);
-
 }

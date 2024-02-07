@@ -15,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.transaction.Transactional;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
@@ -112,9 +113,10 @@ public class DishService {
     }
 
     public void deleteDish(Long id) {
-        dishRepository.delete(dishRepository.getById(id));
+        Dish dish = dishRepository.getById(id);
+        dish.setQuantity(0);
+        dishRepository.save(dish);
     }
-
 
     public List<Dish> getAllDishes() {
         return dishRepository.findAll();

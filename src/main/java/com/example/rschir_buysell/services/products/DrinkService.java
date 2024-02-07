@@ -112,9 +112,10 @@ public class DrinkService {
     }
 
     public void deleteDrink(Long id) {
-        drinkRepository.delete(drinkRepository.getById(id));
+        Drink drink = drinkRepository.getById(id);
+        drink.setQuantity(0);
+        drinkRepository.save(drink);
     }
-
     public List<Drink> getAllDrinks() {
         return drinkRepository.findAll();
     }

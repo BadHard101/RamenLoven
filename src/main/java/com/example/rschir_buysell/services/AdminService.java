@@ -12,7 +12,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
@@ -20,7 +19,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -90,7 +88,7 @@ public class AdminService {
 
     public Page<ShoppingCart> getOrdersByAddress(String address, Pageable pageable) {
         if (address != null && !address.isEmpty()) {
-            return shoppingCartRepository.findAllByAddressLikeAndActive("%" + address + "%",false,  pageable);
+            return shoppingCartRepository.findAllByAddressLikeAndActive("%" + address + "%", false, pageable);
         } else {
             return shoppingCartRepository.findAllByActive(false, pageable);
         }
