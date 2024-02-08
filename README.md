@@ -60,6 +60,10 @@
 
 ![Menu](https://github.com/BadHard101/RamenLoven/assets/91153396/2e4ec361-d947-4f3a-b493-e7f10ed033a4)
 
+   - Просмотр профиля и истории заказов
+
+![Account](https://github.com/BadHard101/RamenLoven/assets/91153396/388fed30-b2c7-45c2-8905-97c9ae115f9f)
+
 ### Повар
 
    - Функционал принятия, готовности заказа
@@ -90,13 +94,27 @@
 
 ![RoleChange](https://github.com/BadHard101/RamenLoven/assets/91153396/67e5a55b-b9c0-48d4-83ca-fbe695ebd788)
 
-   - Подробный информации по заказу
+   - Просмотр подробной информации по заказу
 
 ![OrderPage](https://github.com/BadHard101/RamenLoven/assets/91153396/2b0b529d-41f8-4eca-b7fe-8fc2741e7c12)
 
    - Изменение статуса заказа (при необходимости)
 
 ![StatusChange](https://github.com/BadHard101/RamenLoven/assets/91153396/6b29ba38-21ac-4a30-8197-8e52eb70df58)
+
+### Система приложения
+
+   - Невозможно добавить в заказ большее кол-во продукта, чем есть в БД
+
+![CartLimit](https://github.com/BadHard101/RamenLoven/assets/91153396/395bb380-2f0d-46ad-b6bb-508c72100065)
+
+   - Защита оформления невалидного заказа
+
+![CartSecure](https://github.com/BadHard101/RamenLoven/assets/91153396/ff8bf103-fd68-47d4-ade7-dcfa04665a3a)
+
+   - Автоматическая смена статуса заказов в процессе работы сотрудников с заказом
+
+![AutomaticStatusChange](https://github.com/BadHard101/RamenLoven/assets/91153396/bbe2a66d-67e9-44e7-9bb7-620c5be14ba9)
 
    - И другие...
 
