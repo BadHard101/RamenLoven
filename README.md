@@ -62,7 +62,7 @@
 
    - Просмотр профиля и истории заказов
 
-![image](https://github.com/BadHard101/RamenLoven/assets/91153396/7e69f403-bcc5-452d-ab5e-0adb3aee359f)
+![image](https://github.com/BadHard101/RamenLoven/assets/91153396/388fed30-b2c7-45c2-8905-97c9ae115f9f)
 
 ### Повар
 
@@ -94,7 +94,7 @@
 
 ![RoleChange](https://github.com/BadHard101/RamenLoven/assets/91153396/67e5a55b-b9c0-48d4-83ca-fbe695ebd788)
 
-   - Подробный информации по заказу
+   - Просмотр подробной информации по заказу
 
 ![OrderPage](https://github.com/BadHard101/RamenLoven/assets/91153396/2b0b529d-41f8-4eca-b7fe-8fc2741e7c12)
 
