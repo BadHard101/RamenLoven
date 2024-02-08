@@ -3,7 +3,7 @@
 <h3>Редактирование статуса заказа ${order.id}</h3>
 <form action="/admin/order/edit/${order.id}" method="post">
     <div class="mb-3">
-        <label class="form-label">Выберите роль:</label><br>
+        <label class="form-label">Выберите статус:</label><br>
         <#list status as st>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="orderStatus" value="${st}" id="${st}" ${order.status?seq_contains(st)?string("checked", "")}>

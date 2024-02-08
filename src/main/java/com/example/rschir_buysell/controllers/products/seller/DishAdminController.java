@@ -50,6 +50,7 @@ public class DishAdminController {
 
         double price = dish.getPrice();
         String formattedPrice = Double.toString(price).replace(" ", "");
+        System.out.println(formattedPrice);
         model.addAttribute("formattedPrice", formattedPrice);
 
         return "products/dish/dishEditor";

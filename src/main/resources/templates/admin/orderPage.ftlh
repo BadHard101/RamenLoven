@@ -44,7 +44,6 @@
          style="font-size: 20px; border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: stretch;">
         <div style="flex-grow: 1;">
             <h3>Заказ № ${order.getId()}</h3>
-            <br>
             Дата: ${user.dateOfCreated.toLocalDate()} /
                 ${user.dateOfCreated.getHour()}:${user.dateOfCreated.getMinute()}:${user.dateOfCreated.getSecond()}
             <br>
@@ -70,8 +69,8 @@
             <br>
             Имя заказчика: ${order.client.name}
             <br>
-            <#--Телефон: ${order.client.phoneNumber}
-            <br>-->
+            Телефон: ${order.client.phoneNumber}
+            <br>
             Почта: ${order.client.email}
             <br>
             <br>

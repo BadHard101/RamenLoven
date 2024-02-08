@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Доставка еды ресторана "Эмилия"</title>
+    <title>Доставка по Москве</title>
     <!-- Add Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Add Font Awesome for icons -->
@@ -17,10 +17,10 @@
 </head>
 <body>
 <div class="container">
-    <h1>Ресторан</h1>
+    <h1>RamenLoven 🍜🍥🥢(๑ᵔ⤙ᵔ๑)</h1>
     <hr>
     <#if user.email??>
-        <h3>Пользователь: <i>${user.email}</i></h3>
+        <h3>Пользователь: <i>${user.name}</i></h3>
         <#if user.isActive()>
             <!-- Button Row for Sell, Cart, Logout -->
             <div class="row button-row">

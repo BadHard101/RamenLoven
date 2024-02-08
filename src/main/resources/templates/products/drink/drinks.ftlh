@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <h5 class="card-title">${drink.name}</h5>
                             <p class="card-text">
-                                Напиток ${drink.price}$ | Количество: ${drink.quantity}
+                                Напиток ${drink.price}₽ | Количество: ${drink.quantity}
                             </p>
                             <#if user.isAdmin()>
                                 <a href="/drink/edit/${drink.id}" class="btn btn-primary btn-sm">Редактировать</a>

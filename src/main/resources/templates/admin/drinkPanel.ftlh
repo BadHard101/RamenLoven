@@ -30,7 +30,7 @@
             <td>${drink.id}</td>
             <td>${drink.name}</td>
             <td>${drink.quantity}</td>
-            <td>${drink.price}</td>
+            <td>${drink.price}₽</td>
             <td><a href="/drink/edit/${drink.id}" class="btn btn-primary">Редактирование</a></td>
             <td><a href="/drink/${drink.id}" class="btn btn-primary">Подробная информация</a></td>
         </tr>
