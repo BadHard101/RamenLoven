@@ -51,6 +51,7 @@
 ### Скриншоты
 
 1. **Пользователь**
+
    - Корзина пользователя
 
 ![Cart](https://github.com/BadHard101/RamenLoven/assets/91153396/89b5ce61-edc2-425d-8fe1-c22019d36247)
@@ -60,16 +61,19 @@
 ![Menu](https://github.com/BadHard101/RamenLoven/assets/91153396/2e4ec361-d947-4f3a-b493-e7f10ed033a4)
 
 2. **Повар**
+
    - Функционал принятия, готовности заказа
 
 ![Cook](https://github.com/BadHard101/RamenLoven/assets/91153396/0b00e52b-27ff-4d67-933a-ab604af0536d)
 
 3. **Доставщик**
+
    - Функционал принятия, подтверждение доставки заказа
 
 ![Delivery](https://github.com/BadHard101/RamenLoven/assets/91153396/d549dbd3-30ee-465a-aa05-56677e2787c7)
 
 4. **Панель администратора**
+
    - Возможные страницы панели управления
 
 ![AdminPanel](https://github.com/BadHard101/RamenLoven/assets/91153396/f473120e-bd5e-4efd-8dec-31d85ba51672)
@@ -93,6 +97,8 @@
    - Изменение статуса заказа (при необходимости)
 
 ![StatusChange](https://github.com/BadHard101/RamenLoven/assets/91153396/6b29ba38-21ac-4a30-8197-8e52eb70df58)
+
+   - И другие...
 
 ### Установка
 
