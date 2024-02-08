@@ -60,6 +60,11 @@
 
 ![Menu](https://github.com/BadHard101/RamenLoven/assets/91153396/2e4ec361-d947-4f3a-b493-e7f10ed033a4)
 
+   - Просмотр профиля и истории заказов
+
+![Account](https://github.com/BadHard101/RamenLoven/assets/91153396/ec457661-affe-49e8-973c-ada443462868)
+
+
 ### Повар
 
    - Функционал принятия, готовности заказа
