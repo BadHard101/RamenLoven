@@ -1,9 +1,11 @@
 package com.example.rschir_buysell.services;
 
 import com.example.rschir_buysell.models.Client;
+import com.example.rschir_buysell.models.ShoppingCart;
 import com.example.rschir_buysell.models.enums.Role;
 import com.example.rschir_buysell.models.products.Product;
 import com.example.rschir_buysell.repositories.ClientRepository;
+import com.example.rschir_buysell.repositories.ShoppingCartRepository;
 import com.example.rschir_buysell.repositories.products.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +22,7 @@ public class ClientService {
     private final ClientRepository clientRepository;
     private final PasswordEncoder passwordEncoder;
     private final ProductRepository productRepository;
+    private final ShoppingCartRepository shoppingCartRepository;
 
     public boolean createClient(Client client) {
         String email = client.getEmail();
@@ -41,4 +44,7 @@ public class ClientService {
         return productRepository.findAll();
     }
 
+    public List<ShoppingCart> getHistory(Client client) {
+       return shoppingCartRepository.findAllByActiveAndClient(false, client);
+    }
 }

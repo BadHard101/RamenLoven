@@ -52,7 +52,8 @@ public class ClientController {
     @PostMapping("/registration")
     public String createUser(Client client, Model model) {
         if (!clientService.createClient(client)) {
-            model.addAttribute("errorMessage", "Пользователь с email: " + client.getEmail() + " уже существует");
+            model.addAttribute("errorMessage",
+                    "Пользователь с email: " + client.getEmail() + " уже существует");
             return "authorization/registration";
         }
         return "redirect:/login";
@@ -61,6 +62,7 @@ public class ClientController {
     @GetMapping("/account")
     public String account(@AuthenticationPrincipal Client client, Model model) {
         model.addAttribute("user", client);
+        model.addAttribute("orders", clientService.getHistory(client));
         return "user/account";
     }
 

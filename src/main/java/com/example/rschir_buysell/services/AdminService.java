@@ -105,4 +105,8 @@ public class AdminService {
             shoppingCartRepository.save(order);
         }
     }
+
+    public List<ShoppingCart> getHistory(Client client) {
+        return shoppingCartRepository.findAllByActiveAndClient(false, client);
+    }
 }

@@ -41,6 +41,7 @@ public class AdminController {
 
         model.addAttribute("user", user);
         model.addAttribute("client", client);
+        model.addAttribute("orders", adminService.getHistory(client));
         return "user/userPage";
     }
 
