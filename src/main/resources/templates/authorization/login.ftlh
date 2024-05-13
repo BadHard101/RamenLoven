@@ -19,13 +19,13 @@
             <input type="password" class="form-control" id="password" name="password">
         </div>
         <input type="hidden" name="_csrf" value="${_csrf.token}">
+        <#if errorMessage??>
+            <p style="color: red">${errorMessage}</p>
+        </#if>
         <button type="submit" class="btn btn-primary">Вход</button>
     </form>
     <br>
     <a href="/registration">Зарегистрироваться</a>
-    <#if errorMessage??>
-        <h2 style="color: red">${errorMessage}</h2>
-    </#if>
 </div>
 </body>
 </html>
