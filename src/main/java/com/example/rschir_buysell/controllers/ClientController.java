@@ -14,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -56,8 +58,14 @@ public class ClientController {
     @Operation(summary = "Create user", description = "Endpoint for creating a new user")
     @PostMapping("/registration")
     public String createUser(
-            @Parameter(description = "User object to be created", required = true) Client client,
+            @Parameter(description = "User object to be created", required = true)
+            @Valid Client client, BindingResult bindingResult,
             Model model) {
+        model.addAttribute("client", client);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("validationErrors", bindingResult);
+            return "authorization/registration";
+        }
         if (!clientService.createClient(client)) {
             model.addAttribute("errorMessage", "Пользователь с email: " + client.getEmail() + " уже существует");
             return "authorization/registration";

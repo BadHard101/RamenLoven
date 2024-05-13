@@ -1,12 +1,12 @@
 package com.example.rschir_buysell.models;
 
 import com.example.rschir_buysell.models.enums.Role;
-import com.example.rschir_buysell.models.products.Product;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -19,13 +19,20 @@ public class Client implements UserDetails {
     @Column
     private Long id;
 
-    @Column(unique = true)
+    @Column
+    @NotEmpty(message = "Почта не должна быть пустой")
+    @Email(message = "Не корректный email")
     private String email;
 
     @Column
+    @NotEmpty(message = "Телефон не должен быть пустым")
+    @Pattern(regexp = "(^$|[0-9]{11})",
+            message = "Некорректный номер телефона")
     private String phoneNumber;
 
     @Column
+    @NotEmpty(message = "Имя не должно быть пустым")
+    @Size(min = 2, max = 30, message = "Имя должно быть от 2 до 30 символов")
     private String name;
 
     @Column
@@ -36,6 +43,14 @@ public class Client implements UserDetails {
     private Image avatar;
 
     @Column
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$",
+            // regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$",
+            // минимум:
+            // одну цифру,
+            // одну строчную и одну прописную букву,
+            // один специальный символ (@, #, $, %, ^, &, +, =, !)
+            // быть не менее 8 символов
+            message = "Пароль должен содержать минимум одну цифру, одну строчную и одну прописную букву, специальный символ и быть не менее 8 символов")
     private String password;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
