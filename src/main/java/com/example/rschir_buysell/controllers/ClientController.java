@@ -79,6 +79,7 @@ public class ClientController {
             @Parameter(description = "Authenticated client", required = true) @AuthenticationPrincipal Client client,
             Model model) {
         model.addAttribute("user", client);
+        model.addAttribute("orders", clientService.getHistory(client));
         return "user/account";
     }
 
