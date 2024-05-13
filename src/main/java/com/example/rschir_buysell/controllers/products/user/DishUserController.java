@@ -4,6 +4,7 @@ import com.example.rschir_buysell.models.Client;
 import com.example.rschir_buysell.models.enums.ProductType;
 import com.example.rschir_buysell.models.products.Dish;
 import com.example.rschir_buysell.services.products.DishService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,7 @@ import java.util.List;
 public class DishUserController {
     private final DishService dishService;
 
+    @Operation(summary = "Show dishes", description = "Endpoint for displaying all available dishes")
     @GetMapping("/selling")
     public String showDishes(Model model, Principal principal) {
         List<Dish> dishes = dishService.getAllDishes();
@@ -29,8 +31,11 @@ public class DishUserController {
         return "products/dish/dishes";
     }
 
+    @Operation(summary = "Get dish page", description = "Endpoint for displaying a specific dish")
     @GetMapping("/{id}")
-    public String getDishPage(@PathVariable("id") Long id, Principal principal, Model model) {
+    public String getDishPage(
+            @PathVariable("id") Long id,
+            Principal principal, Model model) {
         Client client = dishService.getClientByPrincipal(principal);
         Dish dish = dishService.getDishById(id);
         model.addAttribute("user", client);

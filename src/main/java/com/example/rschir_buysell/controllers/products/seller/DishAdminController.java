@@ -1,8 +1,9 @@
 package com.example.rschir_buysell.controllers.products.seller;
 
-import com.example.rschir_buysell.models.Client;
 import com.example.rschir_buysell.models.products.Dish;
 import com.example.rschir_buysell.services.products.DishService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,14 +25,19 @@ import java.security.Principal;
 public class DishAdminController {
     private final DishService dishService;
 
+    @Operation(summary = "Create dish page", description = "Endpoint for displaying create dish page")
     @GetMapping("/create")
     public String createDishPage(Model model, Principal principal) {
         model.addAttribute("user", dishService.getClientByPrincipal(principal));
         return "products/dish/dishCreator";
     }
 
+    @Operation(summary = "Create dish", description = "Endpoint for creating a new dish")
     @PostMapping("/create")
-    public String createDish(@RequestParam("file1") MultipartFile file1, Dish dish, Principal principal, Model model) throws IOException {
+    public String createDish(
+            @RequestParam("file1") MultipartFile file1,
+            @Parameter(description = "Dish object to be created", required = true) Dish dish,
+            Principal principal, Model model) throws IOException {
         String st = dishService.createDish(principal, dish, file1);
         if (st.equals("Success")) {
             return "redirect:/dish/selling";
@@ -42,8 +48,11 @@ public class DishAdminController {
         }
     }
 
+    @Operation(summary = "Edit dish form", description = "Endpoint for displaying edit dish form")
     @GetMapping("/edit/{id}")
-    public String editDishForm(@PathVariable("id") Long id, Model model, Principal principal) {
+    public String editDishForm(
+            @Parameter(description = "Dish ID", required = true) @PathVariable("id") Long id,
+            Model model, Principal principal) {
         model.addAttribute("user", dishService.getClientByPrincipal(principal));
         Dish dish = dishService.getDishById(id);
         model.addAttribute("dish", dish);
@@ -56,12 +65,13 @@ public class DishAdminController {
         return "products/dish/dishEditor";
     }
 
+    @Operation(summary = "Update dish", description = "Endpoint for updating an existing dish")
     @PostMapping("/edit/{id}")
-    public String updateDish(@RequestParam("file1") MultipartFile file1,
-                             @PathVariable("id") Long id,
-                             Dish dish,
-                             Model model,
-                             Principal principal) throws IOException {
+    public String updateDish(
+            @RequestParam("file1") MultipartFile file1,
+            @Parameter(description = "Dish ID", required = true) @PathVariable("id") Long id,
+            @Parameter(description = "Updated dish information", required = true) Dish dish,
+            Model model, Principal principal) throws IOException {
         String st = dishService.updateDish(id, dish, file1);
         if (st.equals("Success")) {
             return "redirect:/dish/selling";
@@ -79,16 +89,20 @@ public class DishAdminController {
         }
     }
 
+    @Operation(summary = "Delete dish", description = "Endpoint for deleting a dish")
     @GetMapping("/delete/{id}")
-    public String deleteDish(@PathVariable Long id) {
+    public String deleteDish(
+            @Parameter(description = "Dish ID", required = true) @PathVariable Long id) {
         dishService.deleteDish(id);
         return "redirect:/";
     }
 
+    @Operation(summary = "Get dish panel", description = "Endpoint for displaying dish panel")
     @GetMapping("/panel")
-    public String getDishPanel(@RequestParam(name = "name", required = false) String name,
-                               @PageableDefault(size = 10, sort = {"id"}, direction = Sort.Direction.ASC) Pageable pageable,
-                               Model model, Principal principal) {
+    public String getDishPanel(
+            @Parameter(description = "Dish name (optional)") @RequestParam(name = "name", required = false) String name,
+            @PageableDefault(size = 10, sort = {"id"}, direction = Sort.Direction.ASC) Pageable pageable,
+            Model model, Principal principal) {
         model.addAttribute("user", dishService.getClientByPrincipal(principal));
         model.addAttribute("name", name);
 

@@ -4,6 +4,7 @@ import com.example.rschir_buysell.models.Client;
 import com.example.rschir_buysell.models.enums.ProductType;
 import com.example.rschir_buysell.models.products.Drink;
 import com.example.rschir_buysell.services.products.DrinkService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +21,9 @@ import java.util.List;
 public class DrinkUserController {
     private final DrinkService drinkService;
 
+    @Operation(summary = "Show drinks", description = "Endpoint for displaying all available drinks")
     @GetMapping("/selling")
-    public String showDrinkes(Model model, Principal principal) {
+    public String showDrinks(Model model, Principal principal) {
         List<Drink> drinks = drinkService.getAllDrinks();
         model.addAttribute("drinks", drinks);
         model.addAttribute("user", drinkService.getClientByPrincipal(principal));
@@ -29,8 +31,11 @@ public class DrinkUserController {
         return "products/drink/drinks";
     }
 
+    @Operation(summary = "Get drink page", description = "Endpoint for displaying a specific drink")
     @GetMapping("/{id}")
-    public String getDrinkPage(@PathVariable("id") Long id, Principal principal, Model model) {
+    public String getDrinkPage(
+            @PathVariable("id") Long id,
+            Principal principal, Model model) {
         Client client = drinkService.getClientByPrincipal(principal);
         Drink drink = drinkService.getDrinkById(id);
         model.addAttribute("user", client);
