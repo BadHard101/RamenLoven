@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/badha/IdeaProjects/RamenLoven/src/main/java/com/example/rschir_buysell</OriginalElement>
+  <nodes>
+    <node x="-4.007511244378293" y="356.02308845577227">com.example.rschir_buysell.services.DeliveryService</node>
+    <node x="885.5" y="939.0">com.example.rschir_buysell.models.Client</node>
+    <node x="1689.183208395802" y="751.0">com.example.rschir_buysell.controllers.products.seller.DrinkAdminController</node>
+    <node x="35.246012179095715" y="483.8900112233446">com.example.rschir_buysell.controllers.AdminController</node>
+    <node x="1282.5908095952025" y="1203.9071064467764">com.example.rschir_buysell.services.products.DishService</node>
+    <node x="845.5" y="661.0">com.example.rschir_buysell.models.ShoppingCart</node>
+    <node x="371.4091904047975" y="1113.6169115442278">com.example.rschir_buysell.models.products.Drink</node>
+    <node x="374.4091904047975" y="1167.7520839580209">com.example.rschir_buysell.models.products.Dish</node>
+    <node x="1242.5908095952025" y="1135.9071064467764">com.example.rschir_buysell.repositories.products.DishRepository</node>
+    <node x="1563.3294051627386" y="193.0">com.example.rschir_buysell.services.products.ShoppingCartService</node>
+    <node x="1305.5" y="185.6752023988006">com.example.rschir_buysell.repositories.products.ProductRepository</node>
+    <node x="1224.5" y="441.5">com.example.rschir_buysell.services.ClientService</node>
+    <node x="582.0" y="366.0">com.example.rschir_buysell.repositories.ShoppingCartRepository</node>
+    <node x="410.4157721139428" y="457.5483658170915">com.example.rschir_buysell.controllers.products.cooking.EmployeeController</node>
+    <node x="1563.3294051627386" y="353.0">com.example.rschir_buysell.controllers.products.user.ProductUserController</node>
+    <node x="1583.4171964017992" y="1286.0">com.example.rschir_buysell.controllers.products.user.DishUserController</node>
+    <node x="504.44730134932513" y="1058.135172413793">com.example.rschir_buysell.models.products.Product</node>
+    <node x="1379.3366416791605" y="661.0">com.example.rschir_buysell.services.products.DrinkService</node>
+    <node x="35.246012179095715" y="1130.7159064911991">com.example.rschir_buysell.controllers.SwaggerController</node>
+    <node x="1635.0" y="487.5">com.example.rschir_buysell.controllers.ClientController</node>
+    <node x="925.5" y="1217.0">com.example.rschir_buysell.models.enums.Role</node>
+    <node x="909.4195277361318" y="321.5">com.example.rschir_buysell.services.CustomUserDetailsService</node>
+    <node x="1611.9311244377811" y="947.3830884557722">com.example.rschir_buysell.controllers.ImageController</node>
+    <node x="1485.239910044978" y="1062.7841079460268">com.example.rschir_buysell.repositories.ImageRepository</node>
+    <node x="1178.0" y="900.6431784107946">com.example.rschir_buysell.models.enums.Status</node>
+    <node x="735.8390554722639" y="450.0">com.example.rschir_buysell.services.EmployeeService</node>
+    <node x="1373.4655622188907" y="900.6431784107946">com.example.rschir_buysell.repositories.products.DrinkRepository</node>
+    <node x="69.81437781109389" y="260.0">com.example.rschir_buysell.controllers.products.delivery.DeliveryController</node>
+    <node x="198.24074074074088" y="558.5">com.example.rschir_buysell.services.AdminService</node>
+    <node x="824.3390554722639" y="606.0">com.example.rschir_buysell.repositories.ClientRepository</node>
+    <node x="1695.183208395802" y="842.0">com.example.rschir_buysell.controllers.products.user.DrinkUserController</node>
+    <node x="256.7407407407409" y="728.4516341829085">com.example.rschir_buysell.controllers.products.seller.ProductAdminController</node>
+    <node x="47.746012179095715" y="1058.135172413793">com.example.rschir_buysell.configurations.SwaggerConfig</node>
+    <node x="1583.4171964017992" y="1203.9071064467764">com.example.rschir_buysell.controllers.products.seller.DishAdminController</node>
+    <node x="12.246012179095715" y="1203.2966405686052">com.example.rschir_buysell.RschirBuysellApplication</node>
+    <node x="525.4091904047975" y="753.0">com.example.rschir_buysell.models.Image</node>
+    <node x="869.4195277361318" y="240.2267115600449">com.example.rschir_buysell.configurations.SecurityConfig</node>
+    <node x="535.4473013493251" y="1288.572383808096">com.example.rschir_buysell.models.enums.ProductType</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.rschir_buysell.services.products.ShoppingCartService" target="com.example.rschir_buysell.repositories.products.ProductRepository" relationship="TO_ONE">
+      <point x="-120.96704647676006" y="-54.82479760119941" />
+      <point x="96.5" y="0.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.EmployeeService" target="com.example.rschir_buysell.repositories.ShoppingCartRepository" relationship="TO_ONE">
+      <point x="0.0" y="-50.0" />
+      <point x="913.3390554722639" y="422.0" />
+      <point x="769.1868686868687" y="422.0" />
+      <point x="67.1868686868687" y="12.696969696969688" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.ShoppingCartService" target="com.example.rschir_buysell.models.ShoppingCart" relationship="CREATE">
+      <point x="0.0" y="-61.5" />
+      <point x="1740.8294051627386" y="167.17789001122333" />
+      <point x="-22.912798146381306" y="167.17789001122333" />
+      <point x="-22.912798146381306" y="710.9516341829085" />
+      <point x="-116.5" y="-69.04836581709151" />
+    </edge>
+    <edge source="com.example.rschir_buysell.models.ShoppingCart" target="com.example.rschir_buysell.models.enums.Status" relationship="TO_MANY">
+      <point x="-0.0" y="119.0" />
+      <point x="962.0" y="919.0" />
+      <point x="1243.5" y="919.0" />
+      <point x="-0.0" y="-84.5" />
+    </edge>
+    <edge source="com.example.rschir_buysell.models.Client" target="com.example.rschir_buysell.models.enums.Role" relationship="TO_MANY">
+      <point x="13.5" y="119.0" />
+      <point x="0.0" y="-61.5" />
+    </edge>
+    <edge source="com.example.rschir_buysell.models.ShoppingCart" target="com.example.rschir_buysell.models.Client" relationship="TO_ONE">
+      <point x="41.5" y="119.0" />
+      <point x="0.0" y="-119.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.DishService" target="com.example.rschir_buysell.repositories.ClientRepository" relationship="TO_ONE">
+      <point x="-132.11197901049331" y="23.158530734632677" />
+      <point x="1143.25" y="1288.565637181409" />
+      <point x="1143.25" y="629.3333333333333" />
+      <point x="89.0" y="9.333333333333258" />
+    </edge>
+    <edge source="com.example.rschir_buysell.configurations.SecurityConfig" target="com.example.rschir_buysell.services.CustomUserDetailsService" relationship="TO_ONE">
+      <point x="1.5" y="27.0" />
+      <point x="1037.9195277361318" y="284.25" />
+      <point x="0.0" y="-27.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.models.products.Product" target="com.example.rschir_buysell.models.enums.ProductType" relationship="TO_ONE">
+      <point x="0.0" y="96.0" />
+      <point x="0.0" y="-38.5" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.AdminService" target="com.example.rschir_buysell.repositories.ClientRepository" relationship="TO_ONE">
+      <point x="177.5" y="0.0" />
+      <point x="-89.0" y="0.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.DrinkService" target="com.example.rschir_buysell.repositories.ClientRepository" relationship="TO_ONE">
+      <point x="-0.0" y="-61.5" />
+      <point x="1509.3366416791605" y="624.6666666666666" />
+      <point x="89.0" y="4.666666666666629" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.DishService" target="com.example.rschir_buysell.repositories.ImageRepository" relationship="TO_ONE">
+      <point x="90.35758620689808" y="-59.17010494752617" />
+      <point x="1502.9483958021005" y="1146.9762818590702" />
+      <point x="1535.0908095952025" y="1146.9762818590702" />
+      <point x="-39.64910044977546" y="14.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.DrinkService" target="com.example.rschir_buysell.repositories.ImageRepository" relationship="TO_ONE">
+      <point x="65.40326836581744" y="61.5" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.controllers.products.seller.DishAdminController" target="com.example.rschir_buysell.services.products.DishService" relationship="TO_ONE">
+      <point x="-106.5" y="0.0" />
+      <point x="130.0" y="-34.5" />
+    </edge>
+    <edge source="com.example.rschir_buysell.controllers.products.user.DrinkUserController" target="com.example.rschir_buysell.services.products.DrinkService" relationship="TO_ONE">
+      <point x="0.0" y="-27.0" />
+      <point x="1798.683208395802" y="822.5" />
+      <point x="1618.5" y="822.5" />
+      <point x="109.1633583208395" y="61.5" />
+    </edge>
+    <edge source="com.example.rschir_buysell.models.Client" target="com.example.rschir_buysell.models.Image" relationship="TO_ONE">
+      <point x="-118.0" y="-71.0" />
+      <point x="838.788275862069" y="987.0" />
+      <point x="838.788275862069" y="860.5" />
+      <point x="99.5" y="0.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.controllers.products.seller.DrinkAdminController" target="com.example.rschir_buysell.services.products.DrinkService" relationship="TO_ONE">
+      <point x="-109.5" y="-1.5" />
+      <point x="130.0" y="54.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.ClientService" target="com.example.rschir_buysell.repositories.products.ProductRepository" relationship="TO_ONE">
+      <point x="0.0" y="-73.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.controllers.products.seller.ProductAdminController" target="com.example.rschir_buysell.services.AdminService" relationship="TO_ONE">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.CustomUserDetailsService" target="com.example.rschir_buysell.repositories.ClientRepository" relationship="TO_ONE">
+      <point x="119.75" y="27.0" />
+      <point x="1157.6695277361318" y="567.5" />
+      <point x="928.3390554722639" y="567.5" />
+      <point x="15.0" y="-14.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.EmployeeService" target="com.example.rschir_buysell.repositories.ClientRepository" relationship="TO_ONE">
+      <point x="0.0" y="50.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.ClientService" target="com.example.rschir_buysell.models.Client" relationship="CREATE">
+      <point x="-69.35589205397127" y="76.64893553223385" />
+      <point x="1332.6441079460287" y="1110.0" />
+      <point x="118.0" y="52.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.ClientService" target="com.example.rschir_buysell.repositories.ClientRepository" relationship="TO_ONE">
+      <point x="-0.0" y="73.0" />
+      <point x="1402.0" y="615.3333333333334" />
+      <point x="89.0" y="-4.666666666666629" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.DrinkService" target="com.example.rschir_buysell.repositories.products.DrinkRepository" relationship="TO_ONE">
+      <point x="-48.87107946026981" y="61.5" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.AdminService" target="com.example.rschir_buysell.repositories.ShoppingCartRepository" relationship="TO_ONE">
+      <point x="14.003928170594804" y="-59.56677890011224" />
+      <point x="389.7446689113357" y="384.66666666666663" />
+      <point x="-120.0" y="4.666666666666629" />
+    </edge>
+    <edge source="com.example.rschir_buysell.controllers.ClientController" target="com.example.rschir_buysell.services.ClientService" relationship="TO_ONE">
+      <point x="-107.0" y="0.0" />
+      <point x="177.5" y="0.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.controllers.products.user.DishUserController" target="com.example.rschir_buysell.services.products.DishService" relationship="TO_ONE">
+      <point x="-100.0" y="0.0" />
+      <point x="130.0" y="47.592893553223576" />
+    </edge>
+    <edge source="com.example.rschir_buysell.controllers.products.delivery.DeliveryController" target="com.example.rschir_buysell.services.DeliveryService" relationship="TO_ONE">
+      <point x="-17.821889055472184" y="27.0" />
+      <point x="0.0" y="-38.5" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.ClientService" target="com.example.rschir_buysell.repositories.ShoppingCartRepository" relationship="TO_ONE">
+      <point x="-15.0" y="-73.0" />
+      <point x="1387.0" y="389.43995510662177" />
+      <point x="89.98597081930427" y="9.439955106621767" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.ShoppingCartService" target="com.example.rschir_buysell.repositories.ClientRepository" relationship="TO_ONE">
+      <point x="160.17003367003372" y="51.88608305274971" />
+      <point x="1900.9994388327723" y="620.0" />
+      <point x="898.3390554722639" y="620.0" />
+      <point x="-15.0" y="-14.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.controllers.products.user.ProductUserController" target="com.example.rschir_buysell.services.products.ShoppingCartService" relationship="TO_ONE">
+      <point x="21.0" y="-27.0" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.DrinkService" target="com.example.rschir_buysell.models.Client" relationship="CREATE">
+      <point x="-130.0" y="0.0" />
+      <point x="1100.9689055472281" y="722.5" />
+      <point x="97.46890554722813" y="-111.57721139430294" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.AdminService" target="com.example.rschir_buysell.repositories.products.ProductRepository" relationship="TO_ONE">
+      <point x="-0.6526374859707857" y="-59.56677890011224" />
+      <point x="375.0881032547701" y="199.6752023988006" />
+      <point x="-96.5" y="0.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.ShoppingCartService" target="com.example.rschir_buysell.repositories.ShoppingCartRepository" relationship="TO_ONE">
+      <point x="-177.5" y="13.0" />
+      <point x="1221.91189674523" y="267.5" />
+      <point x="1221.91189674523" y="220.27328843995514" />
+      <point x="702.0" y="220.27328843995514" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.DishService" target="com.example.rschir_buysell.models.Client" relationship="CREATE">
+      <point x="-130.0" y="-15.0" />
+      <point x="1200.5" y="1250.4071064467764" />
+      <point x="1200.5" y="1143.4071064467764" />
+      <point x="118.0" y="85.40710644677642" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.DishService" target="com.example.rschir_buysell.repositories.products.DishRepository" relationship="TO_ONE">
+      <point x="-86.0" y="-61.5" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.models.ShoppingCart" target="com.example.rschir_buysell.models.products.Product" relationship="TO_MANY">
+      <point x="-116.5" y="0.0" />
+      <point x="775.1229985007499" y="780.0" />
+      <point x="775.1229985007499" y="1154.135" />
+      <point x="105.99988905547241" y="-1.724137930523284E-4" />
+    </edge>
+    <edge source="com.example.rschir_buysell.controllers.products.cooking.EmployeeController" target="com.example.rschir_buysell.services.EmployeeService" relationship="TO_ONE">
+      <point x="-133.0" y="0.0" />
+      <point x="904.25" y="484.5483658170915" />
+      <point x="904.25" y="500.0" />
+      <point x="177.5" y="0.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.models.Image" target="com.example.rschir_buysell.models.products.Product" relationship="TO_ONE">
+      <point x="-14.461889055472398" y="107.5" />
+      <point x="0.0" y="-96.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.DeliveryService" target="com.example.rschir_buysell.repositories.ShoppingCartRepository" relationship="TO_ONE">
+      <point x="178.79651236671282" y="22.601490668806832" />
+      <point x="645.4203142536477" y="417.1245791245791" />
+      <point x="-56.57968574635231" y="14.32547699214365" />
+    </edge>
+    <edge source="com.example.rschir_buysell.models.products.Product" target="com.example.rschir_buysell.models.Image" relationship="TO_MANY">
+      <point x="105.99988905547241" y="14.999827586206948" />
+      <point x="643.25" y="1169.135" />
+      <point x="643.25" y="860.5" />
+      <point x="99.5" y="0.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.controllers.ImageController" target="com.example.rschir_buysell.repositories.ImageRepository" relationship="TO_ONE">
+      <point x="-122.5" y="27.0" />
+      <point x="44.691214392803204" y="-14.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.models.products.Drink" target="com.example.rschir_buysell.models.products.Product" relationship="GENERALIZATION">
+      <point x="45.5" y="8.845577212923672E-5" />
+      <point x="483.9091904047975" y="1127.617" />
+      <point x="483.9091904047975" y="1154.135" />
+      <point x="-106.00011094452759" y="-1.724137930523284E-4" />
+    </edge>
+    <edge source="com.example.rschir_buysell.controllers.AdminController" target="com.example.rschir_buysell.services.AdminService" relationship="TO_ONE">
+      <point x="110.0" y="0.0" />
+      <point x="145.12037037037044" y="510.8900112233446" />
+      <point x="145.12037037037044" y="620.0" />
+      <point x="-177.5" y="0.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.AdminService" target="com.example.rschir_buysell.models.Client" relationship="CREATE">
+      <point x="-152.1038159371493" y="60.942760942760856" />
+      <point x="223.63692480359157" y="1002.0" />
+      <point x="-118.0" y="-56.0" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.DrinkService" target="com.example.rschir_buysell.models.Image" relationship="CREATE">
+      <point x="130.0" y="0.0" />
+      <point x="1941.5" y="722.5" />
+      <point x="1941.5" y="1389.4961619190406" />
+      <point x="800.9736506746626" y="1389.4961619190406" />
+      <point x="800.9736506746626" y="894.2575112443777" />
+      <point x="97.0943178410813" y="33.757511244377724" />
+    </edge>
+    <edge source="com.example.rschir_buysell.models.products.Dish" target="com.example.rschir_buysell.models.products.Product" relationship="GENERALIZATION">
+      <point x="42.5" y="-8.395802092309168E-5" />
+      <point x="483.9091904047975" y="1181.752" />
+      <point x="483.9091904047975" y="1154.135" />
+      <point x="-106.00011094452759" y="-1.724137930523284E-4" />
+    </edge>
+    <edge source="com.example.rschir_buysell.services.products.DishService" target="com.example.rschir_buysell.models.Image" relationship="CREATE">
+      <point x="-15.0" y="61.5" />
+      <point x="1397.5908095952025" y="1365.318380809595" />
+      <point x="820.9736506746626" y="1365.318380809595" />
+      <point x="820.9736506746626" y="875.5" />
+      <point x="99.5" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Compact" zoom="0.6140592694693315" showDependencies="true" x="798.5000000000001" y="686.6425364758697" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

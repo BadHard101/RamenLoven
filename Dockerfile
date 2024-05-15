@@ -2,7 +2,7 @@ FROM adoptopenjdk:11-jre-hotspot-bionic
 
 WORKDIR /app
 
-COPY target/rschir_buysell-0.0.1-SNAPSHOT.jar app.jar
+COPY target/Restaurant-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 

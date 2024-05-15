@@ -4,14 +4,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: rschir_buysell
+    image: ramenloven
     ports:
       - "8080:8080"
     depends_on:
       mysql:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/rschir_pr5
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/restaurantdb
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: badhardsql!
 
@@ -21,8 +21,8 @@ services:
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_ROOT_PASSWORD: badhardsql!
-      MYSQL_DATABASE: rschir_pr5
-      MYSQL_USER: user
+      MYSQL_DATABASE: restaurantdb
+      MYSQL_USER: root
       MYSQL_PASSWORD: badhardsql!
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
