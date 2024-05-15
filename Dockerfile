@@ -20,22 +20,11 @@ FROM maven:3.8.1-openjdk-11-slim AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
-RUN mvn clean package -DskipTests
+RUN mvn clean package
 
 # Этап 2: Запуск приложения
 FROM adoptopenjdk:11-jre-hotspot-bionic
 WORKDIR /app
 COPY --from=build /app/target/Restaurant-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Установите переменные окружения для подключения к базе данных MySQL
-ENV SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/restaurantdb
-ENV SPRING_DATASOURCE_USERNAME=root
-ENV SPRING_DATASOURCE_PASSWORD=badhardsql!
-
-# Копируем скрипт ожидания
-COPY wait-for-it.sh wait-for-it.sh
-RUN chmod +x wait-for-it.sh
-
-# Запустите приложение при запуске контейнера
-CMD ["./wait-for-it.sh", "mysql:3306", "--", "java", "-jar", "app.jar"]
+CMD ["java", "-jar", "app.jar"]
