@@ -11,8 +11,10 @@
 #ENV SPRING_DATASOURCE_USERNAME=root
 #ENV SPRING_DATASOURCE_PASSWORD=badhardsql!
 
-# Запустите приложение при запуске контейнера
-CMD ["java", "-jar", "app.jar"]
+## Запустите приложение при запуске контейнера
+#CMD ["java", "-jar", "app.jar"]
+
+
 # Этап 1: Сборка приложения
 FROM maven:3.8.1-openjdk-11-slim AS build
 WORKDIR /app
