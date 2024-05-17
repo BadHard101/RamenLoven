@@ -34,6 +34,13 @@ public class ClientService {
         clientRepository.save(client);
         return true;
     }
+    public boolean changePass(Client client) {
+        String email = client.getEmail();
+        Client foundClient = clientRepository.findByEmail(email);
+        foundClient.setPassword(passwordEncoder.encode(client.getPassword()));
+        clientRepository.save(foundClient);
+        return true;
+    }
 
     public Client getClientByPrincipal(Principal principal) {
         if (principal == null) return new Client();
